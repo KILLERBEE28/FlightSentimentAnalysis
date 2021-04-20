@@ -9,7 +9,7 @@ nltk.download('stopwords')
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 app=Flask(__name__)
-pickle_in=open(r'D:\Siddharth\MiniProject Sem 8\NLP\current files\tfidf.pkl','rb')
+pickle_in=open('tfidf.pkl','rb')
 tfidf_pkl=pickle.load(pickle_in)
 
 @app.route('/',methods=['GET'])
@@ -53,7 +53,7 @@ def predict():
         input_array=input_arr.toarray()
 
         #Loading my Classifier pickle file on which the dataset is trained upon
-        pickle_in_RF=open(r'D:\Siddharth\MiniProject Sem 8\NLP\current files\RandomForestClassifier_model.pkl','rb')
+        pickle_in_RF=open('RandomForestClassifier_model.pkl','rb')
         RF_pkl=pickle.load(pickle_in_RF)
 
         prediction=RF_pkl.predict(input_array)
